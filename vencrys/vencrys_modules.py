@@ -1,6 +1,10 @@
 import pandas as pd
 import re
 
+from Cryptodome.Cipher import AES
+from Cryptodome.Random import get_random_bytes
+
+
 class Data():
     def __init__(self, filename):
         self.filename = filename
@@ -20,10 +24,13 @@ class Data():
 
 class Encryptor():
     def __init__(self):
-        pass
+        aes_key = get_random_bytes(16)
+        self.cipher = AES.new(aes_key, AES.MODE_OCB)
 
     def encrypt(self, data):
-        pass
+        
+
+    def __encrypt_all__(self, data):
 
     def __save__(self, filename):
         pass
